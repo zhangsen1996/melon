@@ -19,6 +19,7 @@ public class NettyConnector implements Connector {
 
     @Override
     public void start() {
+
         bossGroup = new NioEventLoopGroup(1);
         workGroup = new NioEventLoopGroup();
         ServerBootstrap serverBootstrap = new ServerBootstrap();

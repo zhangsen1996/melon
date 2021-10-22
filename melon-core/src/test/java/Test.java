@@ -35,6 +35,14 @@ public class Test<V extends @Custom(id=1) Number & Serializable> {
     }
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException {
+        Method[] declaredMethods = User.class.getDeclaredMethods();
+        for (Method declaredMethod : declaredMethods) {
+            Parameter[] parameters = declaredMethod.getParameters();
+            Class<?>[] parameterTypes = declaredMethod.getParameterTypes();
+            System.out.println();
+        }
+
+
         Test<Integer> integerTest = new Test<>();
         integerTest.setV(1);
         Integer v = integerTest.getV();
@@ -83,8 +91,7 @@ public class Test<V extends @Custom(id=1) Number & Serializable> {
 
         Custom annotation = Demo.class.getAnnotation(Custom.class);
         InvocationHandler invocationHandler = Proxy.getInvocationHandler(annotation);
-        invocationHandler.
-        System.out.println();
+
 
     }
 }
@@ -174,5 +181,9 @@ class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setAll(String name,int id){
+
     }
 }

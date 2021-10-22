@@ -3,7 +3,6 @@ package io.github.zhangsen.melon.core.connector.impl;
 import io.github.zhangsen.melon.core.codec.ProtocolDecoder;
 import io.github.zhangsen.melon.core.codec.ProtocolEncoder;
 import io.github.zhangsen.melon.core.connector.Client;
-import io.github.zhangsen.melon.core.connector.Connector;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
