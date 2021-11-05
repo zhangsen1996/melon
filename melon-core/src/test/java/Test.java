@@ -35,6 +35,10 @@ public class Test<V extends @Custom(id=1) Number & Serializable> {
     }
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException {
+        long i=1498110486;
+        long l = i % 25;
+        System.out.println(l);
+/*
         Method[] declaredMethods = User.class.getDeclaredMethods();
         for (Method declaredMethod : declaredMethods) {
             Parameter[] parameters = declaredMethod.getParameters();
@@ -91,6 +95,7 @@ public class Test<V extends @Custom(id=1) Number & Serializable> {
 
         Custom annotation = Demo.class.getAnnotation(Custom.class);
         InvocationHandler invocationHandler = Proxy.getInvocationHandler(annotation);
+*/
 
 
     }
