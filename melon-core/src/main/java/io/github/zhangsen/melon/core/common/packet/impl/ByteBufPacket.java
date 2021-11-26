@@ -5,18 +5,17 @@ import io.netty.buffer.ByteBuf;
 
 public class ByteBufPacket implements Packet {
 
-    private short packetId;
+    private int routeId;
 
 
     private ByteBuf packetBody;
 
-    @Override
-    public short getPacketId() {
-        return packetId;
+    public int getRouteId() {
+        return routeId;
     }
 
-    public void setPacketId(short packetId) {
-        this.packetId = packetId;
+    public void setRouteId(int routeId) {
+        this.routeId = routeId;
     }
 
     public ByteBuf getPacketBody() {

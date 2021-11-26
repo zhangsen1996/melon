@@ -1,5 +1,6 @@
 package io.github.zhangsen.melon.core.connector.impl;
 
+import io.github.zhangsen.melon.core.codec.ByteBufPacketDecoder;
 import io.github.zhangsen.melon.core.codec.ProtocolDecoder;
 import io.github.zhangsen.melon.core.codec.ProtocolEncoder;
 import io.github.zhangsen.melon.core.connector.Connector;
@@ -15,7 +16,7 @@ public class NettyConnector implements Connector {
     private final Logger logger = LoggerFactory.getLogger(NettyConnector.class);
     private NioEventLoopGroup bossGroup;
     private NioEventLoopGroup workGroup;
-    private int port=8888;
+    private int port=9999;
 
     @Override
     public void start() {
@@ -28,7 +29,7 @@ public class NettyConnector implements Connector {
                 .childHandler(new ChannelInitializer<>() {
                     @Override
                     protected void initChannel(Channel ch) throws Exception {
-                        ch.pipeline().addLast(new ProtocolDecoder())
+                        ch.pipeline().addLast(new ProtocolDecoder()).addLast(new ByteBufPacketDecoder())
                         .addLast(new ProtocolEncoder());
                     }
                 });

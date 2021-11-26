@@ -36,7 +36,7 @@ public class CodecManager implements InstantiationAwareBeanPostProcessor {
                 continue;
             }
 
-            short packetId = methodAnnotation.value();
+            int packetId = methodAnnotation.value();
             if (packetId <= 0) {
                 throw new RuntimeException("错误的packetID："+packetId);
             }

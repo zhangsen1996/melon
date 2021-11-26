@@ -8,16 +8,16 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class NettyFrontendServer implements FrontendServer{
+    private Logger logger = LoggerFactory.getLogger(NettyFrontendServer.class);
 
+    public void start(int port) {
 
-
-
-    public void start() {
-
-        bossGroup = new NioEventLoopGroup(1);
-        workGroup = new NioEventLoopGroup();
+        NioEventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        NioEventLoopGroup workGroup = new NioEventLoopGroup();
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(bossGroup, workGroup)
                 .channel(NioServerSocketChannel.class)

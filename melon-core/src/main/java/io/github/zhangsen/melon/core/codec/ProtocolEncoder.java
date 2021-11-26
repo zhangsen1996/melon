@@ -11,6 +11,8 @@ public class ProtocolEncoder extends MessageToByteEncoder {
         if (msg instanceof Integer){
             out.writeInt((Integer) msg);
         }
-
+        if (msg instanceof String){
+            out.writeBytes(((String) msg).getBytes());
+        }
     }
 }

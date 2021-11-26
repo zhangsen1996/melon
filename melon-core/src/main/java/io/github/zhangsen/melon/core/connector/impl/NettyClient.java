@@ -13,7 +13,7 @@ public class NettyClient implements Client {
 
     private Channel channel;
 
-    private int port=8888;
+    private int port=9999;
     private String ip="127.0.0.1";
 
     @Override
@@ -32,7 +32,6 @@ public class NettyClient implements Client {
                 });
         try {
             io.netty.channel.Channel nettyChannel = bootstrap.connect(ip, port).sync().channel();
-            nettyChannel.writeAndFlush(1);
             while (channel == null) {
                 // 等待获取channel
                 channel = nettyChannel;

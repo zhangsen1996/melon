@@ -23,13 +23,13 @@ public class ProtocolDecoder extends ByteToMessageDecoder {
                 }
                 readPhase = 1;
                 tempPacket = new ByteBufPacket();
-                tempPacket.setPacketId(in.readShort());
+                tempPacket.setRouteId(in.readInt());
                 packetSize = in.readShort();
+            }
+            if (readPhase == 1) {
                 if (in.readableBytes() < packetSize) {
                     return;
                 }
-            }
-            if (readPhase == 1) {
                 ByteBuf packetBody = in.readBytes(packetSize);
                 tempPacket.setPacketBody(packetBody);
                 out.add(tempPacket);
