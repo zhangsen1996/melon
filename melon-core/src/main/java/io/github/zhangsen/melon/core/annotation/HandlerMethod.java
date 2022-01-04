@@ -1,6 +1,5 @@
 package io.github.zhangsen.melon.core.annotation;
 
-import io.github.zhangsen.melon.core.codec.msgdecode.IDecode;
 import io.github.zhangsen.melon.core.common.Constant;
 
 import java.lang.annotation.*;

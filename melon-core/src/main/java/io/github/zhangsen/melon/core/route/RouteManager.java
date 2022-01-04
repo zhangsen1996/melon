@@ -1,13 +1,11 @@
 package io.github.zhangsen.melon.core.route;
 
-import io.github.zhangsen.melon.core.common.packet.impl.ByteBufPacket;
+import io.github.zhangsen.melon.core.session.ISession;
 import io.netty.buffer.ByteBuf;
-
-import java.util.Objects;
 
 public interface RouteManager {
 
-    void doRoute(int routeId, ByteBuf msg);
+    void doRoute(ISession session,int routeId, ByteBuf msg);
 
 
 }

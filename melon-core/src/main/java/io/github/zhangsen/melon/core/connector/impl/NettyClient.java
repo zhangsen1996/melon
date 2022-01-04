@@ -31,15 +31,13 @@ public class NettyClient implements Client {
                     }
                 });
         try {
-            io.netty.channel.Channel nettyChannel = bootstrap.connect(ip, port).sync().channel();
-            while (channel == null) {
-                // 等待获取channel
-                channel = nettyChannel;
-                Thread.sleep(100);
-            }
+            channel = bootstrap.connect(ip, port).sync().channel();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
+    public void sendMsg(Object msg){
+        channel.write(msg);
+    }
+
 }
