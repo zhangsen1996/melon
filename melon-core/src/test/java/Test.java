@@ -38,6 +38,7 @@ public class Test<V extends @Custom(id=1) Number & Serializable> {
         long i=1498110486;
         long l = i % 25;
         System.out.println(l);
+
 /*
         Method[] declaredMethods = User.class.getDeclaredMethods();
         for (Method declaredMethod : declaredMethods) {

@@ -1,9 +1,9 @@
-package io.github.zhangsen.melon.core.net.frontend;
-
+package io.github.zhangsen.melon.core.net.server;
 
 import io.github.zhangsen.melon.core.net.codec.BaseProtocolDecoder;
 import io.github.zhangsen.melon.core.net.codec.BaseProtocolEncoder;
 import io.github.zhangsen.melon.core.net.codec.MsgHandler;
+import io.github.zhangsen.melon.core.net.frontend.NettyFrontendServer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -12,15 +12,15 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class NettyFrontendServer implements FrontendServer{
+public class NettyServer implements BackendServer{
     private Logger logger = LoggerFactory.getLogger(NettyFrontendServer.class);
 
-    private int clientPort;
+    private int port;
 
     private MsgHandler msgHandler;
 
-    public NettyFrontendServer(int clientPort,MsgHandler msgHandler) {
-        this.clientPort = clientPort;
+    public NettyServer(int port, MsgHandler msgHandler) {
+        this.port = port;
         this.msgHandler = msgHandler;
     }
 
@@ -39,16 +39,16 @@ public class NettyFrontendServer implements FrontendServer{
                     }
                 });
         try {
-            serverBootstrap.bind(clientPort).sync();
+            serverBootstrap.bind(port).sync();
         } catch (InterruptedException e) {
             logger.warn("等待绑定端口被打断");
             throw new RuntimeException(e);
         }
-        logger.info("NettyFrontendServer服务启动成功，端口：{}", clientPort);
+        logger.info("NettyServer服务启动成功，端口：{}", port);
     }
 
+    @Override
     public int getPort() {
-        return clientPort;
+        return port;
     }
-
 }

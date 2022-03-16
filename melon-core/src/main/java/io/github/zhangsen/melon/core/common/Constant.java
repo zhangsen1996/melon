@@ -8,4 +8,11 @@ public interface Constant {
 
 
     String DECODE_JSON = "json";
+    String DECODE_PROTOBUF = "protobuf";
+
+    interface PacketType{
+        byte HANDSHAKE = 1;
+        byte HANDSHAKE_ACK = 2;
+        byte BUSINESS_MSG = 3;
+    }
 }

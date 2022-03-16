@@ -1,0 +1,4 @@
+server:
+  port: 12001
+  clientPort: 13001
+  scanPackage: "."

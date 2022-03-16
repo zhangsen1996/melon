@@ -1,6 +1,8 @@
 package io.github.zhangsen.melon.core.net.frontend;
 
-public interface FrontendServer {
+import io.github.zhangsen.melon.core.net.IServer;
+
+public interface FrontendServer extends IServer {
 
 
 }

@@ -9,6 +9,8 @@
     <version>1.0.1</version>
     <modules>
         <module>melon-core</module>
+        <module>melon-spring-boot-starter</module>
+        <module>melon-demo</module>
     </modules>
     <packaging>pom</packaging>
     <name>melon-parent</name>
